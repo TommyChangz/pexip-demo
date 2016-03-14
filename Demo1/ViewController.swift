@@ -112,7 +112,7 @@ class ViewController: UIViewController, UITableViewDataSource, ConferenceDelegat
         
         // Set videoView property to point to a PexVideoView
         conference.videoView = self.videoView
-        
+        conference.videoResolution = Resolution.p448
         conference.escalateMedia { status in
             print("Media escalation status was \(status)")
             self.conference = conference
