@@ -17,7 +17,6 @@ class ViewController: UIViewController, UITableViewDataSource, ConferenceDelegat
     @IBOutlet var videoView: PexVideoView!
     @IBOutlet var endConference: UIButton!
     @IBOutlet var rosterTableView: UITableView!
-    @IBOutlet var microphoneSwitch: UISwitch!
     @IBOutlet var startActivityIndicator: UIActivityIndicatorView!
     
     
@@ -62,6 +61,15 @@ class ViewController: UIViewController, UITableViewDataSource, ConferenceDelegat
         
         cell.textLabel?.text = self.rosterList[indexPath.row].displayName
         cell.detailTextLabel?.text = self.rosterList[indexPath.row].uri
+        
+        let micSwitch = UISwitch.init()
+        micSwitch.tag = indexPath.row
+        micSwitch.on = !self.rosterList[indexPath.row].muted
+        micSwitch.setOn(!self.rosterList[indexPath.row].muted, animated: true)
+        micSwitch.addTarget(self,
+            action: "muteParticipantRosterTableAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        cell.accessoryView = micSwitch
         
         return cell
     }
@@ -141,13 +149,16 @@ class ViewController: UIViewController, UITableViewDataSource, ConferenceDelegat
         })
     }
     
-    @IBAction func toggleMicrophoneSwitch(sender: UISwitch) {
-        if let me = me() {
-            if microphoneSwitch.on {
-                self.conference?.unmuteParticipant(me, completion:{_ in print("Microphone is turned on.")})
-            } else {
-                self.conference?.muteParticipant(me, completion:{_ in print("Microphone is turned off.")})
-            }
+    func muteParticipantRosterTableAction(sender: AnyObject) {
+        let who = sender as! UISwitch
+        muteParticipant(self.rosterList[who.tag], status: who.on)
+    }
+    
+    func muteParticipant(participant: Participant, status: Bool) {
+        if status {
+            self.conference?.unmuteParticipant(participant, completion:{_ in print("Microphone is turned on.")})
+        } else {
+            self.conference?.muteParticipant(participant, completion:{_ in print("Microphone is turned off.")})
         }
     }
     
