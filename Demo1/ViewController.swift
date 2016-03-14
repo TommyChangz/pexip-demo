@@ -5,6 +5,8 @@
 //  Created by Ian Mortimer on 14/10/2015.
 //  Copyright © 2015 Ian Mortimer. All rights reserved.
 //
+//  Edited by Dervis Mansuroglu 14.03.2016
+//
 
 import UIKit
 import PexKit
