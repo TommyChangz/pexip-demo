@@ -73,20 +73,20 @@ class ViewController: UIViewController, UITableViewDataSource, ConferenceDelegat
     @IBAction func joinAction(sender: UIButton) {
 
         guard let uri = ConferenceURI(uri: addressBar.text!) else {
-            print("Feil konferanse uri. Avslutter.")
+            print("Wrong conference uri. Quiting.")
             return
         }
         
         self.startActivityIndicator.startAnimating()
         
         let newConference = Conference()
-        print("Laget en konferanse.")
+        print("Created a new conference object.")
         
         self.registerEventHandling(newConference)
         
         newConference.connect(mobileParticipantDemoName, URI: uri, pin: conferenceDemoRoomPin) { ok in
             if (!ok) {
-                print("Koblet ikke til.")
+                print("Could not connect. Exiting.")
                 return
             }
             
@@ -100,7 +100,7 @@ class ViewController: UIViewController, UITableViewDataSource, ConferenceDelegat
     }
     
     func connectToConference(conference:  Conference) {
-        print("Henter token.")
+        print("Getting a new token.")
         conference.requestToken { status in
             self.listenForEventsAndEscalate(conference)
         }
@@ -122,8 +122,8 @@ class ViewController: UIViewController, UITableViewDataSource, ConferenceDelegat
     
     @IBAction func endCurrentCall(sender: UIButton) {
         self.conference?.releaseToken({
-            _ in print("Fjerner token.")
-            self.conference?.disconnectMedia({_ in print("Lukker video.")})
+            _ in print("Removing token.")
+            self.conference?.disconnectMedia({_ in print("Turns off video.")})
             
             // not sure why, the video view doesnt render black
             // background unless you call this code more than ones.
@@ -144,9 +144,9 @@ class ViewController: UIViewController, UITableViewDataSource, ConferenceDelegat
     @IBAction func toggleMicrophoneSwitch(sender: UISwitch) {
         if let me = me() {
             if microphoneSwitch.on {
-                self.conference?.unmuteParticipant(me, completion:{_ in print("Skrudd på mikrofonen.")})
+                self.conference?.unmuteParticipant(me, completion:{_ in print("Microphone is turned on.")})
             } else {
-                self.conference?.muteParticipant(me, completion:{_ in print("Skrudd av mikrofonen.")})
+                self.conference?.muteParticipant(me, completion:{_ in print("Microphone is turned off.")})
             }
         }
     }
