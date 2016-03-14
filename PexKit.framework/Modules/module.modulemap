@@ -1,0 +1,10 @@
+framework module PexKit {
+  umbrella header "PexKit.h"
+
+  export *
+  module * { export * }
+}
+
+module PexKit.Swift {
+    header "PexKit-Swift.h"
+}
