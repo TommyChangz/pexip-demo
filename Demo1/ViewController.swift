@@ -124,6 +124,9 @@ class ViewController: UIViewController, UITableViewDataSource, ConferenceDelegat
         self.conference?.releaseToken({
             _ in print("Fjerner token.")
             self.conference?.disconnectMedia({_ in print("Lukker video.")})
+            
+            // not sure why, the video view doesnt render black
+            // background unless you call this code more than ones.
             self.conference?.videoView?.renderFrame(nil)
             self.conference?.videoView?.renderFrame(nil)
         
