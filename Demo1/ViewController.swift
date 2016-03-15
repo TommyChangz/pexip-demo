@@ -87,7 +87,7 @@ class ViewController: UIViewController, UITableViewDataSource, ConferenceDelegat
             return
         }
         
-        self.startActivityIndicator.startAnimating()
+        startActivityIndicator.startAnimating()
         
         let newConference = Conference()
         print("Created a new conference object.")
@@ -137,7 +137,6 @@ class ViewController: UIViewController, UITableViewDataSource, ConferenceDelegat
             
             // not sure why, the video view doesnt render black
             // background unless you call this code more than ones.
-            self.conference?.videoView?.renderFrame(nil)
             self.conference?.videoView?.renderFrame(nil)
         
             // remove the mobile from the roster table
