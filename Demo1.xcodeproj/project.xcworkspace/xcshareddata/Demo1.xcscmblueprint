@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "AC9C83618E79F6B59EDCD620580015410E2E0DF9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "AC9C83618E79F6B59EDCD620580015410E2E0DF9" : 0,
+    "B1A50ADCEFE0700047D6BB203C6E04728E2F0203" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "18A0B67E-BAC4-4485-A1C5-96B1EE21383E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "AC9C83618E79F6B59EDCD620580015410E2E0DF9" : "Pexip%20Example%201%20-%20basic%20video\/",
+    "B1A50ADCEFE0700047D6BB203C6E04728E2F0203" : "..\/..\/.."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Demo1",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Demo1.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dervism\/pexip-demo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AC9C83618E79F6B59EDCD620580015410E2E0DF9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/pexip\/pexkit-sdk.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B1A50ADCEFE0700047D6BB203C6E04728E2F0203"
+    }
+  ]
+}
